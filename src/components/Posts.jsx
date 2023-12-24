@@ -73,7 +73,7 @@ const postLists = [
 function Posts() {
   const [post, setPost] = useState(postLists);
   const likeClick = (listIndex) => {
-    const newPost = [...postLists];
+    const newPost = [...post];
     newPost[listIndex].likes = newPost[listIndex].likes + 1;
     setPost(newPost);
   };
