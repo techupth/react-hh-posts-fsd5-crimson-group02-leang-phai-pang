@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import posts from "../posts-data.json";
+import posts from "../datas/posts-data.json";
 
 function Posts() {
   // Initialize likes state with default values from the posts array
@@ -8,6 +8,7 @@ function Posts() {
   const handleLike = (index) => {
     setLikes((prevLikes) => {
       const newLikes = [...prevLikes];
+      console.log(index)
       newLikes[index] += 1;
       return newLikes;
     });
@@ -16,6 +17,7 @@ function Posts() {
   const handleDislike = (index) => {
     setLikes((prevLikes) => {
       const newLikes = [...prevLikes];
+
       if (newLikes[index] > 0) {
         newLikes[index] -= 1;
       }
@@ -26,7 +28,7 @@ function Posts() {
   return (
     <div className="app-wrapper">
       <h1 className="app-title">Posts</h1>
-      <div className="post-list">
+      <div className="post-list"> 
         {posts.map((post, index) => (
           <div className="post-item" key={index}>
             <div className="post-header">
@@ -38,7 +40,8 @@ function Posts() {
             </div>
             <p className="post-content">{post.content}</p>
             <div className="post-actions">
-              <button className="like-button" onClick={() => handleLike(index)}>
+              <button className="like-button" onClick={() => 
+                handleLike(index)}>
                 Like
               </button>
               <button
